@@ -8,14 +8,14 @@
 # verifies its SHA-256 checksum, and installs it to ~/.local/bin (override with
 # WL_INSTALL_DIR). Set WL_VERSION to pin a release tag (default: latest).
 #
-# Source lives in the private catesandrew/workloom-baro-x repo; this file and
-# the release assets it downloads are mirrored to the public
-# catesandrew/workloom-releases repo by .github/workflows/release.yml so
+# Source lives in the private catesandrew/workloom repo; this file and the
+# release assets it downloads are mirrored to the public
+# catesandrew/workloom-releases repo by .github/workflows/release-desktop.yml so
 # anonymous `curl | bash` works without a private-repo token.
 #
 set -euo pipefail
 
-REPO="catesandrew/workloom-releases"
+REPO="${WORKLOOM_REPO:-catesandrew/workloom-releases}"
 BIN_NAME="wl"
 INSTALL_DIR="${WL_INSTALL_DIR:-$HOME/.local/bin}"
 VERSION="${WL_VERSION:-latest}"
